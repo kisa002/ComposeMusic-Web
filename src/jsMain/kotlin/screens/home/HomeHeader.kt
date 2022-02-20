@@ -10,6 +10,7 @@ import org.jetbrains.compose.web.dom.Nav
 import org.w3c.dom.HTMLElement
 import supports.compose.SelectText
 import supports.compose.borderBottom
+import ui.ColorBorder
 import ui.component.SearchField
 
 @Composable
@@ -36,7 +37,7 @@ fun HeaderGroup(content: ContentBuilder<HTMLElement>) {
             flexDirection(FlexDirection.Row)
             alignItems(AlignItems.Center)
 
-            borderBottom(1.px, LineStyle.Solid, Color("#222227"))
+            borderBottom(1.px, LineStyle.Solid, ColorBorder)
         }
     }, content = content)
 }

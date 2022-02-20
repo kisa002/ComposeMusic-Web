@@ -9,6 +9,7 @@ import supports.compose.SelectText
 import supports.compose.borderBottom
 import supports.compose.borderRight
 import ui.ColorBlue
+import ui.ColorBorder
 import ui.ColorPrimary
 
 @Composable
@@ -22,8 +23,8 @@ fun HomeSidebar() {
             width(280.px)
             height(100.vh)
             backgroundColor(ColorPrimary)
-            borderRight(1.px, LineStyle.Solid, Color("#222227"))
-            borderBottom(1.px, LineStyle.Solid, Color("#222227"))
+            borderRight(1.px, LineStyle.Solid, ColorBorder)
+            borderBottom(1.px, LineStyle.Solid, ColorBorder)
         }
     }) {
         SidebarLogo(content = {
@@ -46,7 +47,7 @@ fun SidebarLogo(content: ContentBuilder<HTMLSpanElement>) {
             display(DisplayStyle.Flex)
             // justifyContent(JustifyContent.Center)
             alignItems(AlignItems.Center)
-            borderBottom(1.px, LineStyle.Solid, Color("#222227"))
+            borderBottom(1.px, LineStyle.Solid, ColorBorder)
         }
     }) {
         Span(attrs = {

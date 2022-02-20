@@ -7,7 +7,9 @@ import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Form
 import org.jetbrains.compose.web.dom.Input
 import supports.compose.FontAwesome
+import ui.ColorSearchFieldBackground
 import ui.ColorWhite
+import ui.ColorWhiteGray
 
 @Composable
 fun SearchField(placeholder: String = "") {
@@ -16,7 +18,7 @@ fun SearchField(placeholder: String = "") {
             display(DisplayStyle.Flex)
             flexDirection(FlexDirection.Row)
             alignItems(AlignItems.Center)
-            backgroundColor(Color("#222222"))
+            backgroundColor(ColorSearchFieldBackground)
             border {
                 width = 0.px
                 borderRadius(12.px)
@@ -40,7 +42,7 @@ fun SearchField(placeholder: String = "") {
 
         FontAwesome("fas", "fa-search", attrs = {
             style {
-                color(Color("#7F7F7F"))
+                color(ColorWhiteGray)
             }
         })
     }

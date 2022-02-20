@@ -6,6 +6,8 @@ import org.jetbrains.compose.web.dom.Br
 import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
+import ui.ColorButtonGreen
+import ui.ColorFadeBlack
 import ui.ColorWhite
 
 @Composable
@@ -27,7 +29,7 @@ fun LargeBanner() {
             style {
                 width(100.percent)
                 height(100.percent)
-                backgroundColor(Color("#00000088"))
+                backgroundColor(ColorFadeBlack)
 
                 border {
                     width = 0.px
@@ -67,7 +69,7 @@ fun LargeBanner() {
                     style {
                         width(160.px)
                         height(50.px)
-                        backgroundColor(Color("#25a56a"))
+                        backgroundColor(ColorButtonGreen)
                         color(ColorWhite)
                         fontWeight(600)
                         marginTop(20.px)
