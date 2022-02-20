@@ -1,6 +1,7 @@
 package screens.home
 
 import androidx.compose.runtime.Composable
+import kotlinx.browser.window
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.css.keywords.auto
 import org.jetbrains.compose.web.dom.A
@@ -22,7 +23,9 @@ fun HomeHeader() {
             HeaderNavItem("Manage", false)
         }
 
-        SearchField("노래 제목으로 검색")
+        SearchField(placeholder = "노래 제목으로 검색") {
+
+        }
     }
 }
 

@@ -12,7 +12,7 @@ import ui.ColorWhite
 import ui.ColorWhiteGray
 
 @Composable
-fun SearchField(placeholder: String = "") {
+fun SearchField(text: String = "", placeholder: String = "", onInput: (text: String) -> Unit) {
     Form(attrs = {
         style {
             display(DisplayStyle.Flex)
@@ -36,7 +36,7 @@ fun SearchField(placeholder: String = "") {
             }
 
             onInput {
-                console.log(it.value)
+                onInput(it.value)
             }
         })
 
