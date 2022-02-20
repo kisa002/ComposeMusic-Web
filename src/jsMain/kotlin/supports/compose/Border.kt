@@ -1,3 +1,5 @@
+package supports.compose
+
 import org.jetbrains.compose.web.css.*
 
 fun StyleBuilder.borderTop(width: CSSNumeric, lineStyle: LineStyle, color: CSSColorValue) {

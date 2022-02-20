@@ -1,4 +1,4 @@
-package colors
+package ui
 
 import org.jetbrains.compose.web.css.Color
 

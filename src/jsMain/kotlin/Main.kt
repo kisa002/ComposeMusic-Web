@@ -2,21 +2,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
-import colors.ColorBlue
-import colors.ColorPrimary
-import colors.ColorTextUnselected
-import colors.ColorWhite
-import org.jetbrains.compose.web.attributes.AttrsBuilder
+import ui.ColorBlue
+import ui.ColorPrimary
+import ui.ColorTextUnselected
+import ui.ColorWhite
 import org.jetbrains.compose.web.attributes.InputType
 import org.jetbrains.compose.web.attributes.placeholder
 import org.jetbrains.compose.web.css.*
-import org.jetbrains.compose.web.css.keywords.CSSAutoKeyword
 import org.jetbrains.compose.web.css.keywords.auto
 import org.jetbrains.compose.web.dom.*
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.renderComposable
 import org.w3c.dom.*
-import kotlin.js.Console
+import supports.compose.borderBottom
+import supports.compose.borderRight
 
 fun main() {
     renderComposable(rootElementId = "root") {
@@ -222,7 +221,7 @@ fun LargeBanner() {
         style {
             width(100.percent)
             height(460.px)
-            background("url(\"large_banner.jpg\") center bottom 45% / cover no-repeat")
+            background("url(\"./images/large_banner.jpg\") center bottom 45% / cover no-repeat")
             margin(20.px, 20.px, 0.px, 280.px + 20.px)
 
             border {
@@ -268,7 +267,7 @@ fun LargeBanner() {
                         fontSize((1.2).em + (1.2).vw)
                     }
                 }) {
-                    Text("Jetpack Composes")
+                    Text("Jetpack Compose")
                 }
 
                 Button(attrs = {
