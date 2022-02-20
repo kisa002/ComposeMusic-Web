@@ -16,7 +16,7 @@ import ui.component.RoundedButton
 fun LargeBanner() {
     Div(attrs = {
         style {
-            height(460.px)
+            height(420.px)
             background("url(\"./images/large_banner.jpg\") center bottom 45% / cover no-repeat")
 
             border {
