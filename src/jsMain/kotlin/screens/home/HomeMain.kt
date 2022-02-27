@@ -1,20 +1,22 @@
 package screens.home
 
 import androidx.compose.runtime.Composable
-import org.jetbrains.compose.web.css.DisplayStyle
-import org.jetbrains.compose.web.css.display
-import org.jetbrains.compose.web.css.vw
-import org.jetbrains.compose.web.css.width
+import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Main
 
 @Composable
 fun HomeMain() {
     Main(attrs = {
         style {
-            width(100.vw)
             display(DisplayStyle.Flex)
+            width(100.vw - 280.px - 70.px)
+            flexDirection(FlexDirection.Column)
+            paddingLeft(280.px)
+
+            margin(35.px)
         }
     }) {
         LargeBanner()
+        HomeHotMusic()
     }
 }
