@@ -1,12 +1,13 @@
 package screens.home
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 import org.w3c.dom.HTMLDivElement
-import org.w3c.xhr.XMLHttpRequest
+import repository.chart.ChartRepository
 import repository.chart.model.Song
 import ui.ColorRealWhiteGray
 import ui.ColorWhite
@@ -27,7 +28,7 @@ val dummyMusicList = listOf(
 )
 
 @Composable
-fun HomeHotMusic() {
+fun HomeHotMusic(chartRepository: ChartRepository) {
     val songList = MutableStateFlow<List<Song>>(emptyList())
 
     Section(attrs = {
@@ -48,47 +49,33 @@ fun HomeHotMusic() {
         }
     }
 
-    requestGetMelonChart {
-        console.log("response")
-        console.log("$it")
+    LaunchedEffect(Unit) {
+        val chart = chartRepository.getMelonChart()
+        console.log(chart) // fine -> Array(99)
+        console.log(chart[2]) // error
     }
 
-    val request = XMLHttpRequest()
-    request.open("GET", "http://localhost:8080/chart/melon", true)
-    request.send()
-    request.onload = {
-//        val response = JSON.parse<List<Song>>(request.responseText)
-//        console.log(response.toString())
-//        val a= response[0]
-
-        val res = request.responseText
-        val songs = ArrayList<Song>(emptyList())
-
-        for (i in 1..50) {
-            val title = res.split("title\":\"")[i].split("\"")[0]
-            val artist = res.split("artist\":\"")[i].split("\"")[0]
-            val thumbnail = res.split("thumbnail\":\"")[i].split("\"")[0]
-
-            val song = Song(title, artist, thumbnail)
-            songs.add(song)
-        }
-
-        console.log(songs)
-        songList.value = songs
-
-        it
-
-//        JSON.parse<ArrayList<dynamic>>(request.response.toString()).let {
-//            console.log(it[1])
-////            console.log(songs.first())
-////            songList.value = songs
-////            onLoadedChart(songs)
+//    val request = XMLHttpRequest()
+//    request.open("GET", "http://localhost:8080/chart/melon", true)
+//    request.send()
+//    request.onload = {
+//        val res = request.responseText
+//        val songs = ArrayList<Song>(emptyList())
+//
+//        for (i in 1..50) {
+//            val title = res.split("title\":\"")[i].split("\"")[0]
+//            val artist = res.split("artist\":\"")[i].split("\"")[0]
+//            val thumbnail = res.split("thumbnail\":\"")[i].split("\"")[0]
+//
+//            val song = Song(title, artist, thumbnail)
+//            songs.add(song)
 //        }
-    }
-}
-
-@Composable
-fun requestGetMelonChart(onLoadedChart: (List<Song>) -> Unit) {
+//
+//        console.log(songs)
+//        songList.value = songs
+//
+//        it
+//    }
 }
 
 @Composable

@@ -3,9 +3,10 @@ package screens.home
 import androidx.compose.runtime.Composable
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Main
+import repository.chart.ChartRepository
 
 @Composable
-fun HomeMain() {
+fun HomeMain(chartRepository: ChartRepository) {
     Main(attrs = {
         style {
             display(DisplayStyle.Flex)
@@ -17,6 +18,6 @@ fun HomeMain() {
         }
     }) {
         LargeBanner()
-        HomeHotMusic()
+        HomeHotMusic(chartRepository)
     }
 }
