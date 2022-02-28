@@ -4,10 +4,8 @@ import androidx.compose.runtime.Composable
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Br
-import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
-import ui.ColorButtonGreen
 import ui.ColorFadeBlack
 import ui.ColorWhite
 import ui.component.RoundedButton
