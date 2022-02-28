@@ -18,6 +18,7 @@ val ColorIndigo = Color("#5E02E9")
 
 // UI Color
 val ColorWhiteGray = Color("#7F7F7F")
+val ColorRealWhiteGray = Color("#C0C0C0")
 val ColorFadeBlack = Color("#00000088")
 
 // UI Component Color
