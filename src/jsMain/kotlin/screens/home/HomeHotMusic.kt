@@ -1,9 +1,10 @@
 package screens.home
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.rememberCoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.*
 import org.w3c.dom.HTMLDivElement
@@ -29,6 +30,7 @@ val dummyMusicList = listOf(
 
 @Composable
 fun HomeHotMusic(chartRepository: ChartRepository) {
+    val coroutineScope = rememberCoroutineScope()
     val songList = MutableStateFlow<List<Song>>(emptyList())
 
     Section(attrs = {
@@ -41,41 +43,17 @@ fun HomeHotMusic(chartRepository: ChartRepository) {
         HomeHotMusicTitle()
 
         HomeHotMusicList {
-            val size = songList.collectAsState().value.size
-
             songList.collectAsState().value.forEach {
                 HomeHotMusicItem(it)
             }
         }
     }
 
-    LaunchedEffect(Unit) {
-        val chart = chartRepository.getMelonChart()
-        console.log(chart) // fine -> Array(99)
-        console.log(chart[2]) // error
+    coroutineScope.launch {
+        chartRepository.getMelonChart().let { chart ->
+            songList.value = chart
+        }
     }
-
-//    val request = XMLHttpRequest()
-//    request.open("GET", "http://localhost:8080/chart/melon", true)
-//    request.send()
-//    request.onload = {
-//        val res = request.responseText
-//        val songs = ArrayList<Song>(emptyList())
-//
-//        for (i in 1..50) {
-//            val title = res.split("title\":\"")[i].split("\"")[0]
-//            val artist = res.split("artist\":\"")[i].split("\"")[0]
-//            val thumbnail = res.split("thumbnail\":\"")[i].split("\"")[0]
-//
-//            val song = Song(title, artist, thumbnail)
-//            songs.add(song)
-//        }
-//
-//        console.log(songs)
-//        songList.value = songs
-//
-//        it
-//    }
 }
 
 @Composable
